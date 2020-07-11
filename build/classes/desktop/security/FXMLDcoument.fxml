@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="500.0" maxWidth="1000.0" minHeight="500.0" minWidth="1000.0" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.security.FXMLDcoumentController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <AnchorPane prefHeight="500.0" prefWidth="1000.0">
+         <children>
+            <Label layoutX="428.0" layoutY="14.0" text="Desktop Security">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn_encrypt" layoutX="417.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#Encrypt" text="Encrypt" />
+            <Button fx:id="btn_decrypt" layoutX="524.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#Decrypt" text="Decrypt" />
+            <PasswordField fx:id="input_password" alignment="CENTER" layoutX="424.0" layoutY="148.0" promptText="Enter password">
+               <effect>
+                  <Glow />
+               </effect>
+            </PasswordField>
+            <Label layoutX="47.0" layoutY="240.0" text="Output:" />
+            <ScrollPane layoutX="9.0" layoutY="257.0" prefHeight="233.0" prefWidth="980.0">
+               <content>
+                  <Label fx:id="view_output" prefWidth="615.0" text="&gt;" wrapText="true" />
+               </content>
+            </ScrollPane>
+            <Button layoutX="478.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#help" text="Help" />
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>
