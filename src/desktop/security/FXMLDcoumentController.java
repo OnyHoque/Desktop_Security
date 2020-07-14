@@ -80,13 +80,20 @@ public class FXMLDcoumentController implements Initializable {
                 String str = " >>List of files found:\n ";
                 for(int i = 0; i < file_list.size(); ++i){
                     File file = file_list.get(i);
-                    str = str+file.getName()+"\n ";
-                    byte[] file_byte = getFile(file);
-                    byte[] encrypted_file_byte = encryptFile(key, file_byte);
-                    String save_path = folder.getAbsolutePath()+"\\"+file.getName()+".enc";
-                    saveFile(encrypted_file_byte,save_path);
-                    str = str+"Encrypted file saved in: "+save_path+"\n ";
-                    view_output.setText(str);
+                    String file_name = file.getName();
+                    str = str+file.getName()+" => ";
+                    if(file_name.indexOf(".enc") == -1){
+                        byte[] file_byte = getFile(file);
+                        byte[] encrypted_file_byte = encryptFile(key, file_byte);
+                        String save_path = folder.getAbsolutePath()+"\\"+file.getName()+".enc";
+                        saveFile(encrypted_file_byte,save_path);
+                        
+                        str = str+"Encrypted file saved in: "+save_path+"\n ";
+                        view_output.setText(str);
+                    }else{
+                        str = str+"File already encrypted"+"\n ";
+                        view_output.setText(str);
+                    }
                 }
             }
         }
@@ -107,19 +114,24 @@ public class FXMLDcoumentController implements Initializable {
                 String str = " >>List of files found:\n ";
                 for(int i = 0; i < file_list.size(); ++i){
                     File file = file_list.get(i);
-                    str = str+file.getName()+"\n ";
-                    byte[] file_byte = getFile(file);
-                    try{
-                        byte[] decrypted_file_byte = decryptFile(key, file_byte);
-                        String save_path = folder.getAbsolutePath()+"\\"+file.getName().replace(".enc", "");
-                        saveFile(decrypted_file_byte,save_path);
-                        str = str+"Decrypted file saved in: "+save_path+"\n ";
-                        view_output.setText(str);
-                    }catch(Exception e){
-                        str = str+"Could not decrypt file. wrong password or unencrypted file! "+"\n ";
+                    String file_name = file.getName();
+                    str = str+file.getName()+" => ";
+                    if(file_name.indexOf(".enc") > -1){
+                        byte[] file_byte = getFile(file);
+                        try{
+                            byte[] decrypted_file_byte = decryptFile(key, file_byte);
+                            String save_path = folder.getAbsolutePath()+"\\"+file.getName().replace(".enc", "");
+                            saveFile(decrypted_file_byte,save_path);
+                            str = str+"Decrypted, stored in: "+save_path+"\n ";
+                            view_output.setText(str);
+                        }catch(Exception e){
+                            str = str+"Not decrypted. wrong password! "+"\n ";
+                            view_output.setText(str);
+                        }
+                    }else{
+                        str = str+"Not decrypted. File does not have .enc extension"+"\n ";
                         view_output.setText(str);
                     }
-                    
                 }
             }
         }
