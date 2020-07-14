@@ -17,12 +17,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -35,7 +34,7 @@ import javax.swing.JFileChooser;
 public class FXMLDcoumentController implements Initializable {
     
     @FXML
-    private PasswordField input_password;
+    private TextField input_password;
     @FXML
     private Label label;
     @FXML

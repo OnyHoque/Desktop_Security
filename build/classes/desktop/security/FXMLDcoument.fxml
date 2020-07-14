@@ -20,11 +20,6 @@
             </Label>
             <Button fx:id="btn_encrypt" layoutX="417.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#Encrypt" text="Encrypt" />
             <Button fx:id="btn_decrypt" layoutX="524.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#Decrypt" text="Decrypt" />
-            <PasswordField fx:id="input_password" alignment="CENTER" layoutX="424.0" layoutY="148.0" promptText="Enter password">
-               <effect>
-                  <Glow />
-               </effect>
-            </PasswordField>
             <Label layoutX="47.0" layoutY="240.0" text="Output:" />
             <ScrollPane layoutX="9.0" layoutY="257.0" prefHeight="233.0" prefWidth="980.0">
                <content>
@@ -32,6 +27,7 @@
                </content>
             </ScrollPane>
             <Button layoutX="478.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#help" text="Help" />
+            <TextField fx:id="input_password" alignment="CENTER" layoutX="417.0" layoutY="142.0" prefHeight="25.0" prefWidth="166.0" promptText="Enter password" />
          </children>
       </AnchorPane>
     </children>
