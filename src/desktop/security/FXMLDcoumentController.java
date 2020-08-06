@@ -86,13 +86,13 @@ public class FXMLDcoumentController implements Initializable {
                         byte[] encrypted_file_byte = encryptFile(key, file_byte);
                         String save_path = folder.getAbsolutePath()+"\\"+file.getName()+".enc";
                         saveFile(encrypted_file_byte,save_path);
-                        
                         str = str+"Encrypted file saved in: "+save_path+"\n ";
                         view_output.setText(str);
                     }else{
                         str = str+"File already encrypted"+"\n ";
                         view_output.setText(str);
                     }
+                    
                 }
             }
         }
@@ -159,17 +159,16 @@ public class FXMLDcoumentController implements Initializable {
         } catch (Exception e) {
             view_output.setText(">>Exception : "+e);
         }
-
         return decrypted;
     }
     
     public byte[] getFile(File f) {
-        InputStream is;
+        InputStream fileInputStream;
         try {
-            is = new FileInputStream(f);
-            byte[] content;
-            content = new byte[is.available()];
-            is.read(content);
+            fileInputStream = new FileInputStream(f);
+            byte[] content = new byte[fileInputStream.available()];
+            fileInputStream.read(content);
+            fileInputStream.close();
             return content;
         } catch (FileNotFoundException e) {
             view_output.setText(">>FileNotFoundException : "+e);
@@ -185,7 +184,7 @@ public class FXMLDcoumentController implements Initializable {
         try {
             fos = new FileOutputStream(path);
             fos.write(bytes);
-        fos.close();
+            fos.close();
         } catch (FileNotFoundException e) {
             view_output.setText(">>FileNotFoundException : "+e);
         } catch (IOException e) {
