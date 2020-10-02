@@ -15,8 +15,6 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JFileChooser;

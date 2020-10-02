@@ -77,6 +77,7 @@ public class FXMLDcoumentController implements Initializable {
                 view_output.setText(">>No Files found!");
             }else{
                 String str = " >>List of files found:\n ";
+                int file_counter = 0;
                 for(int i = 0; i < file_list.size(); ++i){
                     File file = file_list.get(i);
                     String file_name = file.getName();
@@ -88,12 +89,16 @@ public class FXMLDcoumentController implements Initializable {
                         saveFile(encrypted_file_byte,save_path);
                         str = str+"Encrypted file saved in: "+save_path+"\n ";
                         view_output.setText(str);
+                        file_counter++;
+                        file_byte = null;
+                        encrypted_file_byte = null;
                     }else{
                         str = str+"File already encrypted"+"\n ";
                         view_output.setText(str);
-                    }
-                    
+                    }                  
                 }
+                str = str+"Total files encrypted: "+file_counter;
+                view_output.setText(str);
             }
         }
     }
@@ -111,6 +116,7 @@ public class FXMLDcoumentController implements Initializable {
                 view_output.setText(">>No Files found!");
             }else{
                 String str = " >>List of files found:\n ";
+                int file_counter = 0;
                 for(int i = 0; i < file_list.size(); ++i){
                     File file = file_list.get(i);
                     String file_name = file.getName();
@@ -123,14 +129,19 @@ public class FXMLDcoumentController implements Initializable {
                             saveFile(decrypted_file_byte,save_path);
                             str = str+"Decrypted, stored in: "+save_path+"\n ";
                             view_output.setText(str);
+                            decrypted_file_byte = null;
+                            file_counter++;
                         }catch(Exception e){
                             str = str+"Not decrypted. wrong password! "+"\n ";
                             view_output.setText(str);
                         }
+                        file_byte = null;
                     }else{
                         str = str+"Not decrypted. File does not have .enc extension"+"\n ";
                         view_output.setText(str);
                     }
+                    str = str+"Total files decrypted: "+file_counter;
+                    view_output.setText(str);
                 }
             }
         }
