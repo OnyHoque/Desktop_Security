@@ -43,6 +43,8 @@ public class FXMLDcoumentController implements Initializable {
     private Button btn_encrypt;
     @FXML
     private Button btn_decrypt;
+    @FXML
+    private Button btn_clearOutput;
     
     
     
@@ -145,6 +147,11 @@ public class FXMLDcoumentController implements Initializable {
                 }
             }
         }
+    }
+    
+    @FXML
+    private void ClearOutput(MouseEvent event) {
+        view_output.setText("");
     }
     
     public byte[] encryptFile(Key key, byte[] content) {
