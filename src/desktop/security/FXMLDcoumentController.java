@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package desktop.security;
 
 import com.google.common.hash.Hashing;
@@ -27,10 +22,9 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JFileChooser;
 
-/**
- *
- * @author onyhouqe
- */
+
+// @author onyhouqe
+
 public class FXMLDcoumentController implements Initializable {
     
     @FXML
@@ -47,7 +41,6 @@ public class FXMLDcoumentController implements Initializable {
     private Button btn_clearOutput;
     
     
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -59,7 +52,7 @@ public class FXMLDcoumentController implements Initializable {
         str += " 1. You need to separate the files in a folder.\n";
         str += " 2. Enter a password in the password field.\n";
         str += " 3. Press the encrypt button and select the previously created folder with all the files.\n";
-        str += "\n\n =================== Decrypt files ===================\n";
+        str += "\n\n\n =================== Decrypt files ===================\n";
         str += " 1. You need to separate the encrypted files in a folder.\n";
         str += " 2. Enter the encryption password in the password field.\n";
         str += " 3. Press the decrypt button and select the previously created folder with all the files.\n";
@@ -179,7 +172,7 @@ public class FXMLDcoumentController implements Initializable {
         }
         return decrypted;
     }
-    
+        
     public byte[] getFile(File f) {
         InputStream fileInputStream;
         try {
@@ -195,7 +188,7 @@ public class FXMLDcoumentController implements Initializable {
         }
         return null;
     }
-    
+        
     public void saveFile(byte[] bytes, String path) {
 
         FileOutputStream fos;
@@ -209,7 +202,7 @@ public class FXMLDcoumentController implements Initializable {
             view_output.setText(">>IOException : "+e);
         }
     }
-    
+        
     public Key keyMaker(String str){
         String str_hash = Hashing.sha256()
                 .hashString(str, StandardCharsets.UTF_8)
@@ -218,7 +211,7 @@ public class FXMLDcoumentController implements Initializable {
         Key key = new SecretKeySpec(str_hash.getBytes(),0,str_hash.getBytes().length, "AES");
         return key;
     }
-    
+        
     public File selectDirectory(){
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -230,11 +223,13 @@ public class FXMLDcoumentController implements Initializable {
             return null;
         }
     }
+        
     public ArrayList<File> getFilesList(final File folder){
         ArrayList<File> file_list = new ArrayList<File>();
         listFilesForFolder(folder, file_list);
         return file_list;
     }
+        
     public static void listFilesForFolder(final File folder, ArrayList<File> file_list) {
         for (final File fileEntry : folder.listFiles()) {
             if (fileEntry.isDirectory()) {

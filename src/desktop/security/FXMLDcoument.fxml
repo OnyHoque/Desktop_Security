@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="513.0" maxWidth="1031.0" minHeight="499.0" minWidth="997.0" prefHeight="499.0" prefWidth="997.0" style="-fx-background-color: #1B1A20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.security.FXMLDcoumentController">
+<AnchorPane id="AnchorPane" maxHeight="513.0" maxWidth="1031.0" minHeight="499.0" minWidth="994.0" prefHeight="499.0" prefWidth="1010.0" style="-fx-background-color: #1B1A20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.security.FXMLDcoumentController">
     <children>
-      <AnchorPane layoutX="3.0" prefHeight="500.0" prefWidth="997.0" style="-fx-background-color: #1B1A20;">
+      <AnchorPane layoutX="6.0" prefHeight="500.0" prefWidth="994.0" style="-fx-background-color: #1B1A20;">
          <children>
             <Label layoutX="428.0" layoutY="14.0" style="-fx-text-fill: #FFFFFF;" text="Desktop Security">
                <font>

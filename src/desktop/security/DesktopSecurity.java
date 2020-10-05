@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author onyhouqe
+ * @author onyhoque
  */
 public class DesktopSecurity extends Application {
     
